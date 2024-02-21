@@ -19,7 +19,7 @@ app.get('/',out);
 
 // app.use('/public', express.static(__dirname + '/public'));
 
-const newApi = function(req,res){
+/* const newApi = function(req,res){
   if (process.env.MESSAGE_STYLE === 'uppercase') {
     res.json({
       "message": "HELLO JSON"
@@ -30,9 +30,20 @@ const newApi = function(req,res){
     })
   }
  
-}
+} */
 
-app.get('/json', newApi);
+app.get('/json', function(req,res){
+  if (process.env.MESSAGE_STYLE === 'uppercase') {
+    res.json({
+      "message": "HELLO JSON"
+    })
+  } else {
+    res.json({
+      "message": "hello json"
+    })
+  }
+ 
+});
 
 // console.log("Hello World")
 
